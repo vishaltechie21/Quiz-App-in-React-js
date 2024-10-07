@@ -25,7 +25,9 @@ const App = () => {
             ) : (
                 <TopicSelector selectTopic={selectTopic} />
             )}
+            
             <Footer />
+            
         </div>
     );
 };

@@ -1,7 +1,7 @@
 // src/components/Quiz.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import QuizResult from '../Quizesult';
+import QuizResult from '../Quizesult'; // Correct import path
 import Loader from '../Loader/Loader';
 import CountdownTimer from '../CountdownTimer/CountdownTimer'; // Import CountdownTimer
 import './Quiz.css';
@@ -67,14 +67,19 @@ const Quiz = ({ topicId, restartSelection }) => {
 
     if (showResults) {
         return (
-            <QuizResult score={score} totalQuestions={questions.length} restartQuiz={restartQuiz} />
+            <QuizResult
+                score={score}
+                totalQuestions={questions.length}
+                restartQuiz={restartQuiz}
+                restartSelection={restartSelection} // Pass restartSelection here
+            />
         );
     }
 
     return (
         <div className="quiz-container">
             <h2>{decodeURIComponent(questions[currentQuestionIndex]?.question || '')}</h2>
-            
+
             {/* Countdown Timer Component */}
             <CountdownTimer 
                 duration={12} 
